@@ -1,17 +1,7 @@
 #!/usr/bin/env bash
-#
-# Station météo 3W : compile le programme, le téléverse sur la carte
-# NUCLEO-L476RG, puis ouvre le moniteur série.
-#
-# Utilisation sous Linux / Git Bash :
-#   - ./televerser.sh [release|debug]
-#
-# Chaque compilation incrémente le numéro de build (include/build_number.h),
-# affiché par la commande VERSION du mode configuration.
-#
-# Quitter le moniteur série : Ctrl+C
 
-# Toujours travailler dans le dossier du projet, d'où que le script soit lancé
+# Il faut faire ./televerser.sh dans le terminal bash pour le lancer 
+
 cd "$(dirname "$0")" || exit 1
 
 # Gestion propre des erreurs avec pause
