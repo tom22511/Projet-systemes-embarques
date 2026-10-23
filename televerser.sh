@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Il faut faire ./televerser.sh dans le terminal bash pour le lancer 
+# et après il faut apputer sur entrer, mode de base 
 
 cd "$(dirname "$0")" || exit 1
 
