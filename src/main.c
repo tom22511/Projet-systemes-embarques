@@ -7,6 +7,7 @@
 #include "setup.h"
 #include "board_pins.h"
 #include "configuration.h"
+#include "gestion_modes.h"
 
 // Inclusions des pilotes matériels
 #include "bme280.h"
@@ -76,6 +77,21 @@ int main(void) {
     GroveButton_Init();
     GroveRGB_Init();
     GroveRTC_Init();
+
+    // Initialisation de l'horloge 
+    /*
+    RTC_DateTime init_dt = {
+        .seconds = 0,
+        .minutes = 0,
+        .hours = 10,
+        .dayOfWeek = 5,
+        .day = 16,
+        .month = 10,
+        .year = 2026
+    };
+    GroveRTC_SetDateTime(&init_dt);
+    */
+
     GroveGPS_Init(); // Initialisation du GPS sur l'UART4 (Port A0)
 
     // Initialisation de la carte SD
@@ -216,7 +232,7 @@ int main(void) {
                 // Gestion de la configuration et des commandes série via configuration.c
                 gererModeConfiguration();
 
-                // Vérification du timeout de 30 minutes
+                // Vérification du timeout de configuration
                 if (verifierTimeoutConfiguration()) {
                     current_mode = MODE_STANDARD;
                     Update_System_LED(current_mode);
